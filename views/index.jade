@@ -1,0 +1,61 @@
+div(style="display:flex;")
+  div
+    p(style='margin:0') table "orders"
+    div(style="border: 1px solid black; margin: 0; width: 300px; display:flex; justify-content:space-around")
+        p(style='margin:0') orderID
+        p(style='margin:0') name
+        p(style='margin:0') price
+        p(style='margin:0') count
+        
+    each val in firstTable
+      div(style="border: 1px solid black; margin: 0; width: 300px; display:flex; justify-content:space-around")
+        p(style='margin:0')=val.orderID
+        p(style='margin:0')=val.name
+        p(style='margin:0')=val.price
+        p(style='margin:0')=val.count
+  div(style='margin-left: 100px;')
+    p(style='margin:0') table "purchase receipt"
+    div(style="border: 1px solid black; margin: 0; width: 300px; display:flex; justify-content:space-around")
+        p(style='margin:0') id
+        p(style='margin:0') issued_by
+        p(style='margin:0') sumtotal
+        p(style='margin:0') orderID
+    each val2 in secondTable
+      div(style="border: 1px solid black; margin: 0; width: 300px; display:flex; justify-content:space-around")
+        p(style='margin:0')=val2.id
+        p(style='margin:0')=val2.issued_by
+        p(style='margin:0')=val2.sumtotal  
+        p(style='margin:0')=val2.orderID
+
+p parameterized query
+form(action='/paramquery',method='post')
+  input(class='maxPrice' type='number', placeholder='enter value' name='limit')
+  select(name='sign')
+    option(value="=" name="option") equal
+    option(value=">" name="option") greater 
+    option(value='<' name="option") smaller
+
+  select(placeholder='choose one row' name='row')
+    option(value='orderID') orderID
+    option(value='name') name
+    option(value='price') price
+    option(value='count') count
+
+  button(type='submit') get data
+
+p query with linq analogy handler 
+form(action='/paramquery2',method='post')
+  input(class='maxPrice' type='number', placeholder='enter value' name='limit')
+  select(name='sign')
+    option(value="=" name="option") equal
+    option(value=">" name="option") greater 
+    option(value='<' name="option") smaller
+
+  select(placeholder='choose one row' name='row')
+    option(value='orderID') orderID
+    option(value='name') name
+    option(value='price') price
+    option(value='count') count
+
+  
+  button(type='submit') get data

@@ -1,0 +1,26 @@
+div(style="display:flex;")
+  div полная таблица
+    div(style="border: 1px solid black; margin: 0; width: 300px; display:flex; justify-content:space-around")
+        p(style='margin:0') orderID
+        p(style='margin:0') name
+        p(style='margin:0') price
+        p(style='margin:0') count
+    each val in fulldata
+        div(style="border: 1px solid black; margin: 0; width: 300px; display:flex; justify-content:space-around")
+            p(style='margin:0')=val.orderID
+            p(style='margin:0')=val.name
+            p(style='margin:0')=val.price
+            p(style='margin:0')=val.count
+
+  div параметризованный запрос:
+    div(style="border: 1px solid black; margin: 0; width: 300px; display:flex; justify-content:space-around")
+        p(style='margin:0') orderID
+        p(style='margin:0') name
+        p(style='margin:0') price
+        p(style='margin:0') count
+    each val in result
+        div(style="border: 1px solid black; margin: 0; width: 300px; display:flex; justify-content:space-around")
+            p(style='margin:0')=val.orderID
+            p(style='margin:0')=val.name
+            p(style='margin:0')=val.price
+            p(style='margin:0')=val.count
